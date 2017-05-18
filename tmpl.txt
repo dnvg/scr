@@ -1,0 +1,2 @@
+General;\[b\]%FileName%.%FileExtension%\[/b\]@@@\[b\]Size:\[/b\] %FileSize/String%  /  \[b\]Duration:\[/b\] %Duration/String%  /  
+Video;\[b\]Resolution:\[/b\] %Width%x%Height%\n

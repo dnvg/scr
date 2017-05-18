@@ -1,0 +1,60 @@
+tasks:
+
+  scat-download-torrents: ### scat TITS --->  flexget database reset --sure    flexget execute
+
+    #disable_builtins: [seen_info_hash, seen]
+
+    priority: 1
+    
+    headers:
+      Cookie: "session=HVwepjXQIzVtBKjf9NdR0cpkYSjp2PbejL1QnBr4xmtWT%2F5oTrLRS1yG6xmf0zfPGAF%2FC0DAye%2FESIUfR1pWHTsYBJw4URO0m%2FuWJ9mCR1YVOJCQE1Npr8x2vdKbLstymfX8%2FIEnm25SMkXa7dViOQ%3D%3D"
+
+    regexp_parse:
+      source: 'http://torrents.empornium.me/torrents.php?page=1&filter_cat[51]=1'
+      sections:
+        - {regexp: 'action=download[^"]+', flags: "DOTALL,IGNORECASE"}
+      keys:
+        title:
+          regexps:
+            - {regexp: 'action=download[^"]+'}
+        url:
+          regexps:
+            - {regexp: 'action=download[^"]+'}
+
+    manipulate:
+      - url:
+          replace:
+            regexp: '(?P<name>.*)'
+            format: 'http://torrents.empornium.me/torrents.php?\g<name>'
+  
+    accept_all: yes
+
+    limit_new: 15
+
+    download:
+      path: /arc/tor/
+
+
+  scat-rename-move:
+
+    priority: 2
+
+    find:
+      path: /arc/tor/
+      mask: '*.torrent'
+
+    accept_all: yes
+
+    manipulate:
+      - old_location:
+          from: location
+      - location:
+          replace:
+            regexp: '\[Empornium\]'
+            format: 'scat sex '
+      - location:
+          replace:
+            regexp: '\[|\]|~|\(|\)|\{|\}|"'
+            format: ''
+   
+    exec: mv "{{old_location}}" "{{location}}"; echo "scat sex" > /arc/scr/upldir

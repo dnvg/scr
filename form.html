@@ -1,0 +1,59 @@
+<?php
+$fileinfo=file_get_contents("/arc/upl/inf/fileinfo.txt");
+$imagebam=file_get_contents("/arc/upl/inf/imagebam.txt");
+
+
+
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		body{padding:10px;}
+		ul{list-style-type: none;}
+		li{float:left;}
+		textarea{width:100%;height:180px;}
+		input[type="text"]{width: 100%;}
+		input[type="submit"]{margin:10px auto;}
+		#test{margin-left: auto;margin-right: auto; width: 3em;}
+	</style>
+
+
+</head>
+<body>
+	<div id="test">test</div>
+	<div>
+		<input type="submit" name="submit" value="Submit"><br>
+		<form method="post" action="form_posts.php">
+
+			<input type="text" name="tags">
+			<ul>
+				<li><input type="radio" name="genre" value = "German"> German</li>
+				<li><input type="radio" name="genre" value = "Cuckold"> Cuckold</li>
+				<li><input type="radio" name="genre" value = "Shemale"> Shemale</li>
+				<li><input type="radio" name="genre" value = "Webcam"> Webcam</li>
+				<li><input type="radio" name="genre" value = "Voyeur"> Voyeur</li>
+				<li><input type="radio" name="genre" value = "Spanking"> Spanking</li>
+				<li><input type="radio" name="genre" value = "Painal"> Painal</li>
+			</ul>
+			<br><br>
+			<input type="submit" name="submit" value="Submit"><br>
+
+			<label for="pimpandhost">Pimpandhost</label><br>
+			<textarea name="pimpandhost"></textarea><br>
+
+			<label for="imagebam">Imagebam</label><br>
+			<textarea name="imagebam"><?php $imagebam ?></textarea><br>
+
+			<label for="fileinfo">File info</label><br>
+			<textarea name="fileinfo"><?php $fileinfo ?></textarea><br>
+
+			<label for="urls">URLs</label><br>
+			<textarea name="urls"></textarea><br>
+		</form>
+	</div>
+</body>
+</html>
